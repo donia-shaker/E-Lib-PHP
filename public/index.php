@@ -57,7 +57,7 @@ Router::get('/category_page',[CategoriesController::class,'view_page']);
 Router::get('/categories',[CategoriesController::class,'listAll']);
 Router::get('/add_category',[CategoriesController::class,'create']);
 Router::get('/edit_category/{id}',[CategoriesController::class,'edit']);
-Router::get('/remove_category/{id}/{name}',[CategoriesController::class,'remove']);
+Router::get('/remove_category/{id}',[CategoriesController::class,'remove']);
 Router::post('/save_category',[CategoriesController::class,'store']);
 Router::post('/update_category',[CategoriesController::class,'update']);
 /** offer routes  */
