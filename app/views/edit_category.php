@@ -59,7 +59,7 @@
     <!-- Page CSS -->
     
     <!-- Helpers -->
-    <script src="http://localhost:8000/assets/vendor/js/helpers.js"></script>
+    <!-- <script src="http://localhost:8000/assets/vendor/js/helpers.js"></script> -->
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
@@ -585,17 +585,21 @@
 <!-- Multi Column with Form Separator -->
 <div class="card mb-4">
   <h5 class="card-header">انشاء قسم جديد</h5>
-  <form class="card-body" action="/save_category" method="POST" enctype="multipart/form-data">
-    
+
+  <form class="card-body" action="/update_category" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?php echo $params->id ; ?>">
+    <?php print_r($params) ;
+     echo $params->image;
+     echo $params->name ;?>
     <div class="row g-3">
       <div class="col-md-6">
         <label class="form-label" for="multicol-username">اسم القسم</label>
-        <input name="category_name" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
+        <input name="category_name"  value="<?php echo $params->name ; ?>" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
       </div>
       <div class="col-md-6">
         <label class="form-label" for="multicol-email">صورة القسم</label>
         <div class="input-group input-group-merge">
-          <input  name="image" type="file"  class="form-control"  aria-describedby="multicol-email2" />
+          <input  name="image"  value="<?php echo $params->image ; ?>" type="file"  class="form-control"  aria-describedby="multicol-email2" />
           
         </div>
       </div>
@@ -619,7 +623,7 @@
     
     
     <div class="pt-4">
-      <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+      <button type="submit"  class="btn btn-primary me-sm-3 me-1">Submit</button>
       <button type="reset" class="btn btn-label-secondary">Cancel</button>
     </div>
   </form>
