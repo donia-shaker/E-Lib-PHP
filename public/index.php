@@ -75,7 +75,7 @@ Router::get('/books_page',[BooksController::class,'view_page']);
 Router::get('/books',[BooksController::class,'listAll']);
 Router::get('/add_books',[BooksController::class,'create']);
 Router::get('/edit_books/{id}',[BooksController::class,'edit']);
-Router::get('/remove_books/{id}/{name}',[BooksController::class,'remove']);
+Router::get('/remove_books/{id}',[BooksController::class,'remove']);
 Router::post('/save_books',[BooksController::class,'store']);
 Router::post('/update_books',[BooksController::class,'update']);
 

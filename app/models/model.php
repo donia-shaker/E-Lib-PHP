@@ -24,7 +24,7 @@ class Model{
         $values=implode(",",$values);
         $columns=implode(",",$columns);
        $sql_query="insert into ".self::$tblName." (".$columns." ) values (".$values.")";
-   //echo $sql_query;
+   echo $sql_query;
    
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
         if($stmt->execute())
