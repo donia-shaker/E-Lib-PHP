@@ -65,7 +65,7 @@ class CategoriesController extends Controller{
 
         $category->image=$imageName!=null?$imageName:"default.png";
         $category->created_by=1;
-        $category->is_active=$_POST['is_active'];
+        $category->is_active=1;
 
         $category->update();
         // $this->view('list_categories');

@@ -592,8 +592,10 @@
           <tr>
             <th>اسم القسم</th>
             <th>الصورة</th>
+            <th>السعر</th>
+            <th>الوصف</th>
+            <th>عدد الصفحات</th>
             <th>الحالة</th>
-            
             <th>العمليات</th>
           </tr>
         </thead>
@@ -608,6 +610,9 @@
             <td>
               <img class="img-fluid rounded" height="150px" width="150px" src="images/<?= $book['image'];?>">
             </td>
+            <td><?= $book['price'];?></td>
+            <td><?= $book['description'];?></td>
+            <td><?= $book['pages_number'];?></td>
             <td>
             <?php if($book['is_active']==1) {?>    
             <span class="badge bg-label-success me-1">مفعل</span>

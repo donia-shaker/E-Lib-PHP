@@ -52,6 +52,10 @@ class BooksController extends Controller{
         $imageName=$this->uploadFile($_FILES['image']);
 
         $books->image=$imageName!=null?$imageName:"default.png";
+        $books->description=$_POST['description'];
+        $books->price=$_POST['price'];
+        $books->pages_number=$_POST['pages_number'];
+
         $books->created_by=1;
         $books->is_active=$_POST['is_active'];
 
@@ -75,8 +79,12 @@ class BooksController extends Controller{
         $imageName=$this->uploadFile($_FILES['image']);
 
         $books->image=$imageName!=null?$imageName:"default.png";
+        $books->description=$_POST['description'];
+        $books->price=$_POST['price'];
+        $books->pages_number=$_POST['pages_number'];
+
         $books->created_by=1;
-        $books->is_active=$_POST['is_active'];
+        $books->is_active=1;
 
         $books->update();
     }
