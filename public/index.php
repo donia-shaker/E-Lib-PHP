@@ -98,6 +98,16 @@ Router::get('/remove_publisher/{id}',[PublishersController::class,'remove']);
 Router::post('/save_publisher',[PublishersController::class,'store']);
 Router::post('/update_publisher',[PublishersController::class,'update']);
 
+
+// user Routes
+// Router::get('/users_page',[UsersController::class,'view_page']);
+Router::get('/users',[UsersController::class,'listAll']);
+Router::get('/singup',[UsersController::class,'create']);
+Router::get('/edit_user/{id}',[UsersController::class,'edit']);
+Router::get('/remove_user/{id}',[UsersController::class,'remove']);
+Router::post('/save_user',[UsersController::class,'store']);
+Router::post('/update_user',[UsersController::class,'update']);
+
 /** end of web routes */
 
 

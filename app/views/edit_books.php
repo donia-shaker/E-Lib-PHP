@@ -610,11 +610,15 @@
         <label class="form-label" for="multicol-username">وصف الكتاب</label>
         <input name="description" value="<?php echo $params->description ; ?>" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
       </div>
-            <div class="col-md-3">
+      <div class="col-md-2">
+        <label class="form-label" for="multicol-username"> السعر</label>
+        <input name="format" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
+      </div>
+            <div class="col-md-2">
         <label class="form-label" for="multicol-username"> السعر</label>
         <input name="price" value="<?php echo $params->price ; ?>" type="number" id="multicol-username" class="form-control" placeholder="john.doe" />
       </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
         <label class="form-label" for="multicol-username">عدد الصفحات </label>
         <input name="pages_number" value="<?php echo $params->pages_number ; ?>" type="number" id="multicol-username" class="form-control" placeholder="john.doe" />
       </div>
