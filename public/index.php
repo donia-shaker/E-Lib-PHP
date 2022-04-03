@@ -79,6 +79,15 @@ Router::get('/remove_books/{id}',[BooksController::class,'remove']);
 Router::post('/save_books',[BooksController::class,'store']);
 Router::post('/update_books',[BooksController::class,'update']);
 
+
+// Authors Routes
+Router::get('/authors_page',[AuthorsController::class,'view_page']);
+Router::get('/authors',[AuthorsController::class,'listAll']);
+Router::get('/add_author',[AuthorsController::class,'create']);
+Router::get('/edit_author/{id}',[AuthorsController::class,'edit']);
+Router::get('/remove_author/{id}',[AuthorsController::class,'remove']);
+Router::post('/save_author',[AuthorsController::class,'store']);
+Router::post('/update_author',[AuthorsController::class,'update']);
 /** end of web routes */
 
 
