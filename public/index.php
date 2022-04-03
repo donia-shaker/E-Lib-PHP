@@ -88,6 +88,16 @@ Router::get('/edit_author/{id}',[AuthorsController::class,'edit']);
 Router::get('/remove_author/{id}',[AuthorsController::class,'remove']);
 Router::post('/save_author',[AuthorsController::class,'store']);
 Router::post('/update_author',[AuthorsController::class,'update']);
+
+// Publisher Routes
+Router::get('/publishers_page',[PublishersController::class,'view_page']);
+Router::get('/publishers',[PublishersController::class,'listAll']);
+Router::get('/add_publisher',[PublishersController::class,'create']);
+Router::get('/edit_publisher/{id}',[PublishersController::class,'edit']);
+Router::get('/remove_publisher/{id}',[PublishersController::class,'remove']);
+Router::post('/save_publisher',[PublishersController::class,'store']);
+Router::post('/update_publisher',[PublishersController::class,'update']);
+
 /** end of web routes */
 
 
