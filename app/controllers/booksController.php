@@ -55,11 +55,17 @@ class BooksController extends Controller{
         $books->description=$_POST['description'];
         $books->price=$_POST['price'];
         $books->pages_number=$_POST['pages_number'];
+        $books->format=$_POST['format'];
 
         $books->created_by=1;
         $books->is_active=$_POST['is_active'];
 
         $books->save();
+        if($books->save())
+        $this->view('feedback',['success'=>'data inserted successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not add data']); 
+
 
     }
     function edit($params=[]){
@@ -82,6 +88,7 @@ class BooksController extends Controller{
         $books->description=$_POST['description'];
         $books->price=$_POST['price'];
         $books->pages_number=$_POST['pages_number'];
+        $books->format=$_POST['format'];
 
         $books->created_by=1;
         $books->is_active=1;

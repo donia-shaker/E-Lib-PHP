@@ -22,8 +22,8 @@
             </div>
             <input type="submit" value="ارسال رمز التحقق" />
             <p>سوف نرسل لك<span> رمز التحقق </span>في رساله نصية</p>
-            <input type="text" placeholder="الاسم الاول" />
-            <input type="text" placeholder="اسم العائلة" />
+            <input type="text" placeholder="الاسم " />
+            <!-- <input type="text" placeholder="اسم العائلة" /> -->
             <input type="text" placeholder="البريد الالكتروني" />
             <input type="text" placeholder="تاكيد البريد الالكتروني" />
             <input type="text" placeholder="كلمة السر" />

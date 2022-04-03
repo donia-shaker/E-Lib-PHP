@@ -62,7 +62,12 @@ class publishersController extends Controller{
             $publishers->created_by=1;         
             $publishers->is_active=1; 
 
-        $publishers->save();      
+        $publishers->save();
+        if($publishers->save())
+        
+        $this->view('feedback',['success'=>'data inserted successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not add data']);      
     }
 
         function edit($params=[]){          
