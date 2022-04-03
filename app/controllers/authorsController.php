@@ -46,6 +46,46 @@ class AuthorsController extends Controller{
 
     }
 
- 
+    function create(){
+        $this->view('add_author');      
+    }      
+
+    
+    function store(){         
+        print_r($_POST);         
+        // print_r($_FILES);         
+        $authors=new Author();                  
+        $authors->name=$_POST['name'];              
+        $authors->email=$_POST['email'];         
+        $authors->phone=$_POST['phone'];         
+        $authors->bio=$_POST['bio'];          
+        $authors->created_by=1;         
+        $authors->is_active=$_POST['is_active'];          
+        $authors->save();      
+    }
+
+        function edit($params=[]){          
+            $cat=new Author();         
+            $result=$cat->getSingleRow($params['id']);         
+            $this->view('edit_author',$result);         
+            print_r($result) ;               
+        }   
+
+        function update(){          
+            $authors=new Author();          
+            $authors->name=$_POST['name'];              
+            $authors->email=$_POST['email'];         
+            $authors->phone=$_POST['phone'];         
+            $authors->bio=$_POST['bio'];          
+            $authors->created_by=1;         
+            $authors->is_active=1;          
+            $authors->update();     
+        }   
+
+        public function remove($params=[]){         
+            echo "remove function";         
+            $authors=new Author();         
+            $authors->changeStatus($params['id']);      
+        }
 }
 ?>
