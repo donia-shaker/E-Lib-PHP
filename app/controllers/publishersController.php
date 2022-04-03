@@ -39,6 +39,64 @@ class publishersController extends Controller{
 
     }
 
+    function create(){
+        $this->view('add_publisher');      
+    }      
+
+    
+    function store(){         
+        print_r($_POST);         
+        // print_r($_FILES);         
+        $publishers=new Publisher();                  
+
+            $publishers->name=$_POST['name'];              
+            $imageName=$this->uploadFile($_FILES['image']);
+
+            $publishers->image=$imageName!=null?$imageName:"default.png";         
+            $publishers->phone=$_POST['phone'];         
+            $publishers->alt_phone=$_POST['alt_phone'];          
+            $publishers->email=$_POST['email'];          
+            $publishers->fax=$_POST['fax'];          
+            $publishers->address=$_POST['address'];          
+            $publishers->country=$_POST['country'];          
+            $publishers->created_by=1;         
+            $publishers->is_active=1; 
+
+        $publishers->save();      
+    }
+
+        function edit($params=[]){          
+            $cat=new Publisher();         
+            $result=$cat->getSingleRow($params['id']);         
+            $this->view('edit_publisher',$result);         
+            print_r($result) ;               
+        }   
+
+        function update(){          
+            $publishers=new Publisher(); 
+
+            $publishers->name=$_POST['name'];              
+            $imageName=$this->uploadFile($_FILES['image']);
+
+            $publishers->image=$imageName!=null?$imageName:"default.png";
+
+            $publishers->phone=$_POST['phone'];         
+            $publishers->alt_phone=$_POST['alt_phone'];          
+            $publishers->email=$_POST['email'];          
+            $publishers->fax=$_POST['fax'];          
+            $publishers->address=$_POST['address'];          
+            $publishers->country=$_POST['country'];          
+            $publishers->created_by=1;         
+            $publishers->is_active=1; 
+
+            $publishers->update();     
+        }   
+
+        public function remove($params=[]){         
+            echo "remove function";         
+            $publishers=new Publisher();         
+            $publishers->changeStatus($params['id']);      
+        }
 
 
             public static function uploadFile(array $imageFile): string
