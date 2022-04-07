@@ -129,16 +129,15 @@
             <!-- Multi Column with Form Separator -->
             <!-- Bordered Table -->
 <div class="card">
-  <h5 class="card-header">المؤلفين</h5>
+  <h5 class="card-header">المستخدمين</h5>
   <div class="card-body">
     <div class="table-responsive text-nowrap">
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>اسم المؤلف</th>
-            <th>الهاتف</th>
+            <th>اسم المسخدم</th>
+            <th>الصلاحيات</th>
             <th>الايميل</th>
-            <th>نبذه مختصرة</th>
             <th>الحالة</th>
             <th>العمليات</th>
           </tr>
@@ -147,17 +146,19 @@
        
          
          <?php 
-          foreach($params as $user){?>
+          foreach($params as $user){
+            // print_r($params);
+?>
           <tr>
-            
-            <td><?= $user['name'];?></td>
             <td>
-              <?= $user['phone'];?>
+              <?= $user[1];?>
             </td>
+
+            <td><?= $user['name'];?></td>
+  
             <td><?= $user['email'];?></td>
-            <td><?= $user['bio'];?></td>
             <td>
-            <?php if($user['is_active']==1) {?>    
+            <?php if($user[4]==1) {?>    
             <span class="badge bg-label-success me-1">مفعل</span>
             <?php }
             else {?>
@@ -165,11 +166,11 @@
             <?php } ?>
             </td>
             <td>
-            <a href="/edit_user/<?php echo $user['id'];?>" class="btn btn-icon btn-outline-dribbble">
+            <a href="/edit_user/<?php echo $user[0];?>" class="btn btn-icon btn-outline-dribbble">
                 <i class="tf-icons bx bx-edit-alt me-1"></i>
               </a>
               <button type="button" class="btn btn-icon btn-outline-dribbble">
-                  <a href="/remove_user/<?php echo $user['id'];?>" class="btn btn-icon btn-outline-dribbble">
+                  <a href="/remove_user/<?php echo $user[0];?>" class="btn btn-icon btn-outline-dribbble">
                 <i class="tf-icons bx bx-trash me-1"></i>
                   </a>
               </button>

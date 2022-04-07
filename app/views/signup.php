@@ -12,21 +12,23 @@
       <div class="container" style="zoom: 0.9">
         <div class="box">
           <h4>انشاء حساب</h4>
-          <form action="#">
+
+          <form action="/save_user" method="POST">
             <div class="one">
-              <input type="text" placeholder="رقم الجوال" />
+              <input name="phone" type="text" placeholder="رقم الجوال" />
               <select name="" id="">
                 <option value="+970">+970</option>
               </select>
               <span>رمز البلد</span>
             </div>
-            <input type="submit" value="ارسال رمز التحقق" />
+            <input  type="button" value="ارسال رمز التحقق" />
             <p>سوف نرسل لك<span> رمز التحقق </span>في رساله نصية</p>
-            <input type="text" placeholder="الاسم " />
+            <input type="text" name="name" placeholder="الاسم " />
             <!-- <input type="text" placeholder="اسم العائلة" /> -->
-            <input type="text" placeholder="البريد الالكتروني" />
-            <input type="text" placeholder="تاكيد البريد الالكتروني" />
-            <input type="text" placeholder="كلمة السر" />
+            <!-- <input type="text" name="address" placeholder="العنوان" /> -->
+            <input name="email"  type="email" placeholder="البريد الالكتروني" />
+            <input type="email" name="per_email" placeholder="تاكيد البريد الالكتروني" />
+            <input type="password" name="pass" placeholder="كلمة السر" />
             <div class="ckeckbox">
               <input type="checkbox" id="one" checked />
               <label for="one"
