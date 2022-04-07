@@ -3,6 +3,8 @@ namespace coding\app\models;
 use coding\app\system\AppSystem;
 class Model{
     public static  $tblName;
+    public static $tbTwoName;
+    // public $join;
    
 
    
@@ -14,7 +16,8 @@ class Model{
         $columns=array();
         //get_object_
         foreach(get_object_vars($this) as $key=> $property){
-            //echo $property;
+            // echo $property;
+            print_r(get_object_vars($this));
             if($property!=self::$tblName)
             {
                 $values[]=is_string($property)?"'".$property."'":$property;
@@ -24,7 +27,8 @@ class Model{
         $values=implode(",",$values);
         $columns=implode(",",$columns);
        $sql_query="insert into ".self::$tblName." (".$columns." ) values (".$values.")";
-   echo $sql_query;
+//    echo $sql_query;
+//    echo $columns;
    
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
         if($stmt->execute())
@@ -35,11 +39,19 @@ class Model{
     }
 
     public function getAll(){
-        $sql_query="select * from ".self::$tblName."";
+        $sql_query="select *  from ".self::$tblName." ".$this->join;
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
         $stmt->execute();
         return $stmt->fetchAll();
 
+    }
+        public function join($joinType=NULL, $FK , $PK){
+        // $sql_query="select * , * from ".self::$tblName." ".$this->join;
+        // $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
+        // $stmt->execute();
+        // return $stmt->fetchAll();
+        $this->join= " ". $joinType ." JOIN " .self::$tbTwoName. " ON " . $FK ." = ". $PK;
+        return $this;
     }
 
     public function getSingleRow($id){
