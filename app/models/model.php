@@ -4,7 +4,7 @@ use coding\app\system\AppSystem;
 class Model{
     public static  $tblName;
     public static $tbTwoName;
-    // public $join;
+    // public $join=null;
    
 
    
