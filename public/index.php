@@ -15,6 +15,7 @@ use coding\app\controllers\StepOneController;
 use coding\app\controllers\StepTwoController;
 use coding\app\controllers\StepThreeController;
 use coding\app\controllers\citiesController;
+use coding\app\controllers\peymentsController;
 use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(dirname(__DIR__));//createImmutable(__DIR__);
@@ -117,6 +118,15 @@ Router::get('/edit_city/{id}',[citiesController::class,'edit']);
 Router::get('/remove_city/{id}',[citiesController::class,'remove']);
 Router::post('/save_city',[citiesController::class,'store']);
 Router::post('/update_city',[citiesController::class,'update']);
+
+
+// Peyments Routes
+Router::get('/peyments',[peymentsController::class,'listAll']);
+Router::get('/add_peyment',[peymentsController::class,'create']);
+Router::get('/edit_peyment/{id}',[peymentsController::class,'edit']);
+Router::get('/remove_peyment/{id}',[peymentsController::class,'remove']);
+Router::post('/save_peyment',[peymentsController::class,'store']);
+Router::post('/update_peyment',[peymentsController::class,'update']);
 /** end of web routes */
 
 
