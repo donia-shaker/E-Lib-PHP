@@ -36,56 +36,56 @@ class peymentsController extends Controller{
 
     }
 
-    // function store(){
-    //     print_r($_POST);
-    //     // print_r($_FILES);
-    //     $peyments=new Peyment();
+    function store(){
+        print_r($_POST);
+        // print_r($_FILES);
+        $peyments=new Peyment();
         
-    //     $peyments->name=$_POST['name'];
-    //     $imageName=$this->uploadFile($_FILES['image']);
+        $peyments->name=$_POST['name'];
+        $imageName=$this->uploadFile($_FILES['image']);
 
-    //     $peyments->image=$imageName!=null?$imageName:"default.png";
-    //     $peyments->created_by=1;
-    //     $peyments->is_active=$_POST['is_active'];
+        $peyments->image=$imageName!=null?$imageName:"default.png";
+        $peyments->created_by=1;
+        $peyments->is_active=$_POST['is_active'];
 
-    //     $peyments->save();
-    //     if($peyments->save())
-    //     $this->view('feedback',['success'=>'data inserted successful']);
-    //     else 
-    //     $this->view('feedback',['danger'=>'can not add data']); 
+        $peyments->save();
+        if($peyments->save())
+        $this->view('feedback',['success'=>'data inserted successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not add data']); 
 
 
-    // }
-    // function edit($params=[]){
+    }
+    function edit($params=[]){
 
-    //     $cat=new Peyment();
-    //     $result=$cat->getSingleRow($params['id']);
-    //     $this->view('edit_peyment',$result);
-    //     print_r($result) ;
+        $cat=new Peyment();
+        $result=$cat->getSingleRow($params['id']);
+        $this->view('edit_peyment',$result);
+        print_r($result) ;
         
 
-    // }
-    // function update(){
+    }
+    function update(){
 
-    //      $peyments=new Peyment();
+         $peyments=new Peyment();
 
-    //      $peyments->name=$_POST['name'];
-    //     $imageName=$this->uploadFile($_FILES['image']);
+         $peyments->name=$_POST['name'];
+        $imageName=$this->uploadFile($_FILES['image']);
 
-    //     $peyments->image=$imageName!=null?$imageName:"default.png";
+        $peyments->image=$imageName!=null?$imageName:"default.png";
 
-    //     $peyments->created_by=1;
-    //     $peyments->is_active=1;
+        $peyments->created_by=1;
+        $peyments->is_active=1;
 
-    //     $peyments->update();
-    // }
+        $peyments->update();
+    }
 
-    // public function remove($params=[]){
-    //     echo "remove function";
-    //     $peyments=new Peyment();
-    //     $peyments->changeStatus($params['id']);
+    public function remove($params=[]){
+        echo "remove function";
+        $peyments=new Peyment();
+        $peyments->changeStatus($params['id']);
 
-    // }
+    }
 
 
     public static function uploadFile(array $imageFile): string
