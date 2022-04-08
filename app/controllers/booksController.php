@@ -12,8 +12,8 @@ class BooksController extends Controller{
         // $allbooks=array();
         $category=new Category();
         $allbooks=$books->getAll();
-        $allcat=$category->getAll();
-        $data=[$allbooks,$allcat];
+        $allCategoires=$category->getAll();
+        $data=["books"=>$allbooks,"categories"=>$allCategoires];
 
         // print_r($allcat);
         $this->view('main',$data);
