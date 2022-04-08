@@ -66,7 +66,7 @@ Router::post('/update_category',[CategoriesController::class,'update']);
 Router::get('/offers',[OffersController::class,'listAll']);
 Router::get('/add_offer',[OffersController::class,'create']);
 Router::get('/edit_offer/{id}',[OffersController::class,'edit']);
-Router::get('/remove_offer/{id}/{name}',[OffersController::class,'remove']);
+Router::get('/remove_offer/{id}',[OffersController::class,'remove']);
 Router::post('/save_offer',[OffersController::class,'store']);
 Router::post('/update_offer',[OffersController::class,'update']);
 
@@ -111,7 +111,6 @@ Router::post('/update_user',[UsersController::class,'update']);
 
 
 // Cities Routes
-// Router::get('/users_page',[UsersController::class,'view_page']);
 Router::get('/cities',[citiesController::class,'listAll']);
 Router::get('/add_city',[citiesController::class,'create']);
 Router::get('/edit_city/{id}',[citiesController::class,'edit']);

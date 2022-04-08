@@ -588,20 +588,24 @@
   <form class="card-body" action="/save_offer" method="POST" enctype="multipart/form-data">
     
     <div class="row g-3">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label class="form-label" for="multicol-username">اسم العرض</label>
-        <input name="category_name" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
+        <input name="title" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
+      </div>
+      <div class="col-md-2">
+        <label class="form-label" for="multicol-username">مقدار الخصم </label>
+        <input name="discount" type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
       </div>
       <div class="col-md-3">
         <label class="form-label" for="multicol-email">تاريخ بداية العرض</label>
         <div class="col-md-10">
-            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
+            <input class="form-control" name="start_date" type="date" value="2021-06-18" id="html5-date-input" />
           </div>
       </div>
       <div class="col-md-3">
         <label class="form-label" for="multicol-email">تاريخ نهاية العرض</label>
         <div class="col-md-10">
-            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
+            <input class="form-control" name="end_date" type="date" value="2021-06-18" id="html5-date-input" />
           </div>
       </div>
       
@@ -609,74 +613,76 @@
     </div>
     <div class="row g-3">
 
-    <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-              <label class="form-check-label" for="inlineRadio2">حسب الكتاب</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-              <label class="form-check-label" for="inlineRadio2">حسب القسم</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-              <label class="form-check-label" for="inlineRadio2">الكل</label>
-            </div>
+
+            <!-- <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="all_books" id="inlineRadio2" value="1" />
+              <label class="form-check-label"  for="inlineRadio2">كل الكتب</label>
+            </div> -->
+
+       <div class="col-md-6">
+        <div class="form-password-toggle">
+          <label class="form-label" for="multicol-confirm-password"> كل الكتب</label>
+          <div class="input-group input-group-merge">
+          <label class="switch">
+              <input name="all_books" value=1 type="checkbox" checked class="switch-input" />
+              <span class="switch-toggle-slider">
+                <span class="switch-on"></span>
+                <span class="switch-off"></span>
+              </span>
+              <span class="switch-label">is active</span>
+            </label>
+          </div>
+        </div>
+      </div>
 
     </div>
 
 
 
     <?php 
-        for($i=0;$i<10;$i++){
-            echo "<p class='remove' data-id=$i>click here</p>";
-        }
+        // for($i=0;$i<10;$i++){
+        //     echo "<p class='remove' data-id=$i>click here</p>";
+        // }
     ?>
     <div class="row g-3">
-      <div class="col-md-4">
+      <div class="col-md-6">
         <label class="form-label" for="multicol-username">الكتب المحددة</label>
         <div class="row mb-3 select2-primary">
-          
-          <div class="col-sm-9">
-            <select  name="selected_books[]"disabled id="multicol-language" class="select2 form-select" multiple>
-              <option value="en" selected>English</option>
-              <option value="fr" selected>French</option>
-              <option value="de">German</option>
-              <option value="pt">Portuguese</option>
+           <?php
+                // print_r($params["books"]); 
+                ?>
+          <div class="col-sm-11">
+            <select  name="book_ids[]" id="multicol-language" class="select2 form-select" multiple>
+              
+              <?php
+               foreach($params['books'] as $book){ 
+                 ?>
+                   <option value="<?= $book['id'];?>"><?= $book['title'] ;?></option>
+
+                 <?php  }  ?>
             </select>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <label class="form-label" for="multicol-username">الكتب المحددة</label>
+      <div class="col-md-6">
+        <label class="form-label"   for="multicol-username">حسب القسم </label>
         <div class="row mb-3 select2-primary">
           
-          <div class="col-sm-9">
-            <select  name="selected_cats" disabled id="multicol-language" class="select2 form-select" multiple>
+          <div class="col-sm-11">
+            <select  name="category_ids[]"  id="multicol-language" class="select2 form-select" multiple>
              
-    <?php
-    foreach($params['categories'] as $cats){ ?>
-<option value="<?= $cats['id'];?>"><?= $cats['name'] ;?></option>
+                <?php
+               foreach($params['categories'] as $cats){ ?>
+                   <option value="<?= $cats['id'];?>"><?= $cats['name'] ;?></option>
 
-   <?php  } 
-    ?>
+                 <?php  }   ?>
 
 
             </select>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <label class="form-label" for="multicol-email">تاريخ بداية العرض</label>
-        <div class="col-md-10">
-            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
-          </div>
-      </div>
-      <div class="col-md-3">
-        <label class="form-label" for="multicol-email">تاريخ نهاية العرض</label>
-        <div class="col-md-10">
-            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
-          </div>
-      </div>
+
       
       <div class="col-md-6">
         <div class="form-password-toggle">

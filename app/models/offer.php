@@ -4,6 +4,7 @@ class Offer extends Model{
     function __construct()
     {
         parent::$tblName="offers";
+        parent::$tbTwoName="categories";
         
     }
 }

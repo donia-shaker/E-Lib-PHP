@@ -4,11 +4,10 @@ use coding\app\system\AppSystem;
 class Model{
     public static  $tblName;
     public static $tbTwoName;
-    // public $join=null;
-   
+    // private $column = "*";
+//     public  $join;
+//    private $where;
 
-   
-   
     function save():bool{
         
       
@@ -27,7 +26,7 @@ class Model{
         $values=implode(",",$values);
         $columns=implode(",",$columns);
        $sql_query="insert into ".self::$tblName." (".$columns." ) values (".$values.")";
-//    echo $sql_query;
+   echo $sql_query;
 //    echo $columns;
    
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
@@ -39,17 +38,33 @@ class Model{
     }
 
     public function getAll(){
-        $sql_query="select *  from ".self::$tblName." ".$this->join;
+        $sql_query="select * from ".self::$tblName." ".$this->join.$this->where;
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
         $stmt->execute();
+        echo $sql_query;
+
         return $stmt->fetchAll();
 
+
     }
-        public function join($joinType=NULL, $FK , $PK){
-        // $sql_query="select * , * from ".self::$tblName." ".$this->join;
-        // $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
-        // $stmt->execute();
-        // return $stmt->fetchAll();
+
+     public function column(...$arg){
+        $this->column = implode(',' ,$arg);
+        // echo ($this->column);
+        // print_r($arg);
+        return $this;
+    }
+    
+    //     public function where($column_name  ,$op, $value){
+    //     $value = is_string($value)?"'".$value."'":$value;
+    //     echo $value;
+
+    //     $this->where = " WHERE ". $column_name ." ".$op." ". $value ;
+    //     return $this;
+    // }
+
+    public function join($joinType=NULL, $FK , $PK){
+
         $this->join= " ". $joinType ." JOIN " .self::$tbTwoName. " ON " . $FK ." = ". $PK;
         return $this;
     }
