@@ -149,7 +149,7 @@
          
          <?php 
           foreach($params as $offer){
-            print_r($params);
+            // print_r($params);
 ?>
           <tr>
             <td><?= $offer['title'];?></td> 
