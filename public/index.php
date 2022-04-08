@@ -127,6 +127,9 @@ Router::get('/edit_peyment/{id}',[peymentsController::class,'edit']);
 Router::get('/remove_peyment/{id}',[peymentsController::class,'remove']);
 Router::post('/save_peyment',[peymentsController::class,'store']);
 Router::post('/update_peyment',[peymentsController::class,'update']);
+
+// Orders Routes
+Router::get('/orders',[orderController::class,'listAll']);
 /** end of web routes */
 
 
