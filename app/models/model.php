@@ -38,7 +38,9 @@ class Model{
     }
 
     public function getAll(){
-        $sql_query="select * from ".self::$tblName." ".$this->join.$this->where;
+        $sql_query="select * from ".self::$tblName." "
+        .$this->join
+        .$this->where;
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
         $stmt->execute();
         echo $sql_query;
