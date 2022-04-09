@@ -8,8 +8,7 @@ class User extends Model{
 
     function __construct()
     {
-        parent::$tblName="users";
-        parent::$tbTwoName="roles";
+        parent::$tblName=["users","roles"];
         
     }
 
