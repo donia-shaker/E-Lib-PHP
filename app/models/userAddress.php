@@ -6,7 +6,7 @@ class userAddress extends Model{
     function __construct()
     {
 
-        parent::$tblName="user_addresses";
+        parent::$tblName=["user_addresses"];
     }
 }
 ?>

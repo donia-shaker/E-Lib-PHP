@@ -2,11 +2,11 @@
 namespace coding\app\models;
 use coding\app\system\AppSystem;
 class Model{
-    public static  $tblName;
-    public static $tbTwoName;
-    // private $column = "*";
-//     public  $join;
-//    private $where;
+    public static $tblName=[];
+    // private $tblName;
+    private $column = "*";
+     private $where=NULL;
+     private $join=NULL;
 
     function save():bool{
         
@@ -16,8 +16,8 @@ class Model{
         //get_object_
         foreach(get_object_vars($this) as $key=> $property){
             // echo $property;
-            print_r(get_object_vars($this));
-            if($property!=self::$tblName)
+            // print_r(get_object_vars($this));
+            if($property!=self::$tblName && $key != 'join' && $key != "where" && $key != "column")
             {
                 $values[]=is_string($property)?"'".$property."'":$property;
                 $columns[]=$key;}
@@ -25,7 +25,9 @@ class Model{
         }
         $values=implode(",",$values);
         $columns=implode(",",$columns);
-       $sql_query="insert into ".self::$tblName." (".$columns." ) values (".$values.")";
+       $sql_query="insert into ".self::$tblName[0]." (".$columns." ) values (".$values.")";
+    //  $sql_query = "INSERT INTO ".self::$tblName[0]  ." (" .$this->columns. ") VALUES (" .$this->values. ")";
+                
 //    echo $sql_query;
 //    echo $columns;
    
@@ -38,9 +40,13 @@ class Model{
     }
 
     public function getAll(){
-        $sql_query="select * from ".self::$tblName." "
-        .$this->join
-        .$this->where;
+        $sql_query="select ".$this->column." from ".self::$tblName[0];
+        if ($this->join !== null) {
+			$sql_query .= $this->join;
+		}
+        if ($this->where !== null) {
+
+        $sql_query .=$this->where;}
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
         $stmt->execute();
         // echo $sql_query;
@@ -50,29 +56,49 @@ class Model{
 
     }
 
+    public function value(...$arg){
+        $this->value=array();
+        foreach($arg as $value){
+
+        $this->value[] = is_string($value)?"'".$value."'":$value;
+    }
+        $this->value = implode(',' , $this->value);
+        // echo ($this->column);
+        // print_r($arg);
+        return $this;
+    }
+
+
      public function column(...$arg){
         $this->column = implode(',' ,$arg);
         // echo ($this->column);
         // print_r($arg);
         return $this;
     }
-    
-    //     public function where($column_name  ,$op, $value){
-    //     $value = is_string($value)?"'".$value."'":$value;
-    //     echo $value;
 
-    //     $this->where = " WHERE ". $column_name ." ".$op." ". $value ;
-    //     return $this;
-    // }
+
+
+    public function table( $table){
+        $this->table = $table;
+        return $this;
+    }
+    
+        public function where($column_name  ,$op, $value){
+        $value = is_string($value)?"'".$value."'":$value;
+        echo $value;
+
+        $this->where = " WHERE ". $column_name ." ".$op." ". $value ;
+        return $this;
+    }
 
     public function join($joinType=NULL, $FK , $PK){
 
-        $this->join= " ". $joinType ." JOIN " .self::$tbTwoName. " ON " . $FK ." = ". $PK;
+        $this->join= " ". $joinType ." JOIN " .self::$tblName[1]. " ON " . $FK ." = ". $PK;
         return $this;
     }
 
     public function getSingleRow($id){
-        $sql_query="select * from ".self::$tblName." where id=".$id."";
+        $sql_query="select * from ".self::$tblName[0]." where id=".$id."";
        
        //echo $sql_query;
          $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
@@ -83,7 +109,7 @@ class Model{
     }
 
     public function changeStatus($id){
-        $sql_query ="UPDATE ".self::$tblName."  SET is_active=0 WHERE id=".$id."";
+        $sql_query ="UPDATE ".self::$tblName[0]."  SET is_active=0 WHERE id=".$id."";
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
         // $stmt->execute();
         // return $stmt->fetchObject();
@@ -91,16 +117,17 @@ class Model{
         return true;
         return false;
     }
-
+    
     function update():bool{
         echo $_POST["id"];
         print_r($_POST);
         $two=array();
 
- 
-       $one="UPDATE ".self::$tblName." SET ";
+ print_r(get_object_vars($this));
+       $one="UPDATE ".self::$tblName[0]." SET ";
        $two=[];
        foreach(get_object_vars($this) as $key=> $property){
+           if($key != 'join' && $key != "where" && $key != "column"){
            if(is_string($property)){
         $two [] =  " ". $key." = '".$property."'" ." "; 
         // echo $key;
@@ -108,6 +135,7 @@ class Model{
         $two []=  " ". $key." = ".$property." "; 
 
     }
+       }
 $two=implode("," , $two);
     // print_r($id) ;
         $three = " WHERE id=".$_POST['id']."";
