@@ -147,18 +147,25 @@
         <h2>تصفح حسب القسم</h2>
         <div class="content">
           <i class="fas fa-chevron-right right"></i>
+          <?php 
+          foreach($params["categories"] as  $value){
+              // echo $key;
+              ?>
           <a href="category_page"
             ><div class="box" style="color: #641e05">
               <i class="fas fa-laptop" style="background-color: #641e05"></i>
-              <span>دين</span>
+              <span><?php echo  $value['name']?></span>
             </div></a
           >
+          <?php } ?>
+
           <a href="category_page">
             <div class="box" style="color: #ef5b05">
               <i class="fas fa-clock" style="background-color: #ef5b05"></i>
               <span> تاريخ</span>
             </div></a
           >
+
           <a href="category_page">
             <div class="box" style="color: #7e50cf">
               <i class="fas fa-keyboard" style="background-color: #7e50cf"></i>
@@ -366,25 +373,29 @@
       <div class="container">
         <div class="title">
           <h2>الكتب الدينية</h2>
+                    <?php
+                    //  foreach($params["books"] as $book){
+                    //   print_r($params);}
+?>
           <a href="">عرض الكل</a>
         </div>
         <div class="books">
           <i class="fas fa-chevron-right start"></i>
           <!-- Start Book One -->
-          <?php foreach($params as $book){?>
+          <?php foreach($params["books"] as $book){?>
           <div class="box book-hidden">
             <a href="book_details_page"
               ><img
                 id="link-img"
-                src="<? echo $params['image']; ?>"
+                src="<?php echo $book['image']; ?>"
                 alt=""
             /></a>
             <div class="text">
               <h3><i class="fas fa-book-open"></i>كتاب الكتروني</h3>
               <a href="book_details_page"
-                ><p class="book"><? echo $params['title']; ?>(كتاب الكتروني)</p></a
+                ><p class="book"><?php echo $book['name']; ?>(كتاب الكتروني)</p></a
               >
-              <span><span class="cost"><? echo $params['price']; ?></span> ر.س</span>
+              <span><span class="cost">24.99</span> ر.س</span>
               <span class="two">شامل الضريبة</span>
             </div>
             <div class="icon">
