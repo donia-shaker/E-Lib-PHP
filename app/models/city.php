@@ -6,7 +6,7 @@ class City extends Model{
     function __construct()
     {
 
-        parent::$tblName="cities";
+        parent::$tblName=["cities"];
     }
 }
 ?>

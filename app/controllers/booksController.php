@@ -94,6 +94,8 @@ class BooksController extends Controller{
         $books->is_active=1;
 
         $books->update();
+        print_r($books->update());
+
         if($books->update())
         $this->view('feedback',['success'=>'data update successful']);
         else 
