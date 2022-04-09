@@ -48,13 +48,21 @@ class citiesController extends Controller{
             $cities->name=$_POST['name'];                        
             $cities->created_by=1;         
             $cities->is_active=1;          
-            $cities->update();     
+            $cities->update();
+            if($cities->update())
+        $this->view('feedback',['success'=>'data update successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not update data']);     
         }   
 
         public function remove($params=[]){         
             echo "remove function";         
             $cities=new City();         
-            $cities->changeStatus($params['id']);      
+            $cities->changeStatus($params['id']);
+            if($cities->changeStatus($params['id']))
+        $this->view('feedback',['success'=>'data removed successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not remove data']);      
         }
 }
 ?>

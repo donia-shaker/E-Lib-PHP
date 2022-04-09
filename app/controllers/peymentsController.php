@@ -61,7 +61,7 @@ class peymentsController extends Controller{
         $cat=new Peyment();
         $result=$cat->getSingleRow($params['id']);
         $this->view('edit_peyment',$result);
-        print_r($result) ;
+        // print_r($result) ;
         
 
     }
@@ -78,12 +78,20 @@ class peymentsController extends Controller{
         $peyments->is_active=1;
 
         $peyments->update();
+        if($peyments->update())
+        $this->view('feedback',['success'=>'data update successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not update data']);
     }
 
     public function remove($params=[]){
         echo "remove function";
         $peyments=new Peyment();
         $peyments->changeStatus($params['id']);
+        if($peyments->changeStatus($params['id']))
+        $this->view('feedback',['success'=>'data removed successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not remove data']);
 
     }
 

@@ -74,7 +74,7 @@ class publishersController extends Controller{
             $cat=new Publisher();         
             $result=$cat->getSingleRow($params['id']);         
             $this->view('edit_publisher',$result);         
-            print_r($result) ;               
+            // print_r($result) ;               
         }   
 
         function update(){          
@@ -94,13 +94,21 @@ class publishersController extends Controller{
             $publishers->created_by=1;         
             $publishers->is_active=1; 
 
-            $publishers->update();     
+            $publishers->update();
+            if($publishers->update())
+        $this->view('feedback',['success'=>'data update successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not update data']);     
         }   
 
         public function remove($params=[]){         
             echo "remove function";         
             $publishers=new Publisher();         
-            $publishers->changeStatus($params['id']);      
+            $publishers->changeStatus($params['id']);
+            if($publishers->changeStatus($params['id']))
+        $this->view('feedback',['success'=>'data removed successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not remove data']);      
         }
 
 

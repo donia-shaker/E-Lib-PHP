@@ -61,37 +61,22 @@ class UsersController extends Controller{
             $users->role_id=$_POST['role_id'];                   
             $users->is_active=1; 
 
-            $users->update();     
+            $users->update();
+             if($users->update())
+        $this->view('feedback',['success'=>'data update successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not update data']);     
         }  
 
         public function remove($params=[]){         
             echo "remove function";         
             $users=new User();         
-            $users->changeStatus($params['id']);      
+            $users->changeStatus($params['id']);
+            if($users->changeStatus($params['id']))
+        $this->view('feedback',['success'=>'data removed successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not remove data']);            
         }
-    // function newUser(){
-    //     $this->view('new_user');
-    // }
-
-
-    // public function saveUser(){
-
-    //     //print_r($_POST);
-    //     $user=new User();
-    //     $user->name=$_POST['name'];
-    //     $user->email=$_POST['email'];
-    //     $user->password=md5($_POST['password']);
-    //     $user->is_active=isset($_POST['is_active'])?1:0;
-    //     $user->role_id=1;
-    //     $user->save();
-    //     if($user->save())
-        
-    //     $this->view('feedback',['success'=>'data inserted successful']);
-    //     else 
-    //     $this->view('feedback',['danger'=>'can not add data']);
-
-    // }
-
     public function register(){
         $this->view("new_user");
     }

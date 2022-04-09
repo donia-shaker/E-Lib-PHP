@@ -12,7 +12,7 @@
       <div class="container">
         <div class="box">
           <h4>تسجيل الدخول</h4>
-          <form action="#">
+          <form action="/books">
             <input
               type="email"
               placeholder="البريد الالكيروني او رقم الحوالة"

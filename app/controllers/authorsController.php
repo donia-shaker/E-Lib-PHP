@@ -56,7 +56,8 @@ class AuthorsController extends Controller{
             $cat=new Author();         
             $result=$cat->getSingleRow($params['id']);         
             $this->view('edit_author',$result);         
-            print_r($result) ;               
+            // print_r($result) ;
+                   
         }   
 
         function update(){          
@@ -67,13 +68,23 @@ class AuthorsController extends Controller{
             $authors->bio=$_POST['bio'];          
             $authors->created_by=1;         
             $authors->is_active=isset($_POST['is_active'])?1:0;          
-            $authors->update();     
+            $authors->update();
+            if($authors->update())
+        $this->view('feedback',['success'=>'data update successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not update data']);
+
         }   
 
         public function remove($params=[]){         
             echo "remove function";         
             $authors=new Author();         
-            $authors->changeStatus($params['id']);      
+            $authors->changeStatus($params['id']);
+            if($authors->changeStatus($params['id']))
+        $this->view('feedback',['success'=>'data removed successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not remove data']);
+
         }
 }
 ?>

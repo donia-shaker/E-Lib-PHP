@@ -86,13 +86,21 @@ class OffersController extends Controller{
             //    $offers->books_ids = $_POST['books_ids'];
                $offers->is_active = 1;
 
-            $offers->update();     
+            $offers->update();
+            if($offers->update())
+        $this->view('feedback',['success'=>'data update successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not update data']);     
         } 
 
         public function remove($params=[]){         
             echo "remove function";         
             $offers=new Offer();         
-            $offers->changeStatus($params['id']);      
+            $offers->changeStatus($params['id']);
+            if($offers->changeStatus($params['id']))
+        $this->view('feedback',['success'=>'data removed successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not remove data']);      
         }
     }
     
