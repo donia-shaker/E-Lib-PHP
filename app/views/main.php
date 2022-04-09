@@ -139,56 +139,6 @@
         </div>
       </div>
     </section>
-    <!-- <section class="slider">
-      <div class="container"> -->
-    <!-- <div class="sliders">
-          <div id="slide-1" class="slide">
-            <img src="images/slide-1.jpg" alt="" />
-            <a href="#slide-7"><i class="fas fa-chevron-left"></i></a>
-            <a href="#slide-2"><i class="fas fa-chevron-right right"></i></a>
-          </div>
-          <div id="slide-2" class="slide">
-            <img src="images/slide-2.jpg" alt="" />
-            <a href="#slide-1"><i class="fas fa-chevron-left"></i></a>
-            <a href="#slide-3"><i class="fas fa-chevron-right right"></i></a>
-          </div>
-          <div id="slide-3" class="slide">
-            <img src="images/slide-3.jpg" alt="" />
-            <a href="#slide-2"><i class="fas fa-chevron-left"></i></a>
-            <a href="#slide-4"><i class="fas fa-chevron-right right"></i></a>
-          </div>
-          <div id="slide-4" class="slide">
-            <img src="images/slide-1.jpg" alt="" />
-            <a href="#slide-3"><i class="fas fa-chevron-left"></i></a>
-            <a href="#slide-5"><i class="fas fa-chevron-right right"></i></a>
-          </div>
-          <div id="slide-5" class="slide">
-            <img src="images/slide-2.jpg" alt="" />
-            <a href="#slide-4"><i class="fas fa-chevron-left"></i></a>
-            <a href="#slide-6"><i class="fas fa-chevron-right right"></i></a>
-          </div>
-          <div id="slide-6" class="slide">
-            <img src="images/slide-3.jpg" alt="" />
-            <a href="#slide-5"><i class="fas fa-chevron-left"></i></a>
-            <a href="#slide-7"><i class="fas fa-chevron-right right"></i></a>
-          </div>
-          <div id="slide-7" class="slide">
-            <img src="images/slide-1.jpg" alt="" />
-            <a href="#slide-6"><i class="fas fa-chevron-left"></i></a>
-            <a href="#slide-1"><i class="fas fa-chevron-right right"></i></a>
-          </div>
-        </div>
-        <nav class="slider">
-          <a href="#slide-1"><i class="fas fa-square"></i></a>
-          <a href="#slide-2"><i class="fas fa-square"></i></a>
-          <a href="#slide-3"><i class="fas fa-square"></i></a>
-          <a href="#slide-4"><i class="fas fa-square"></i></a>
-          <a href="#slide-5"><i class="fas fa-square"></i></a>
-          <a href="#slide-6"><i class="fas fa-square"></i></a>
-          <a href="#slide-7"><i class="fas fa-square"></i></a>
-        </nav> -->
-    <!-- </div>
-    </section> -->
     <!-- End Slider Section -->
 
     <!-- Start classification Section -->
@@ -421,19 +371,20 @@
         <div class="books">
           <i class="fas fa-chevron-right start"></i>
           <!-- Start Book One -->
+          <?php foreach($params as $book){?>
           <div class="box book-hidden">
             <a href="book_details_page"
               ><img
                 id="link-img"
-                src="images/book-1-1 (2).jpg"
+                src="<? echo $params['image']; ?>"
                 alt=""
             /></a>
             <div class="text">
               <h3><i class="fas fa-book-open"></i>كتاب الكتروني</h3>
               <a href="book_details_page"
-                ><p class="book">كبرياء وهوى(كتاب الكتروني)</p></a
+                ><p class="book"><? echo $params['title']; ?>(كتاب الكتروني)</p></a
               >
-              <span><span class="cost">17.99</span> ر.س</span>
+              <span><span class="cost"><? echo $params['price']; ?></span> ر.س</span>
               <span class="two">شامل الضريبة</span>
             </div>
             <div class="icon">
@@ -444,6 +395,7 @@
               <a><i class="fas fa-download"></i></a>
             </div>
           </div>
+          <?php } ?>
           <!-- End Book One -->
 
           <!-- Start Book Two -->
@@ -471,7 +423,7 @@
           <!-- Start Book Two -->
 
           <!-- Start Book Three -->
-          <div class="box book-hidden">
+          <!-- <div class="box book-hidden">
             <a href="book_details_page"
               ><img src="images/book3.jpg" alt=""
             /></a>
@@ -491,11 +443,11 @@
               ></a>
               <a><i class="fas fa-download"></i></a>
             </div>
-          </div>
+          </div> -->
           <!-- End Book Three -->
 
           <!-- Start Book Four -->
-          <div class="box book-hidden">
+          <!-- <div class="box book-hidden">
             <a href="book_details_page"
               ><img src="images/book-4.jpg" alt=""
             /></a>
@@ -515,11 +467,11 @@
               ></a>
               <a><i class="fas fa-download"></i></a>
             </div>
-          </div>
+          </div> -->
           <!-- End Book Four -->
 
           <!-- Start Book Five -->
-          <div class="box book-hidden">
+          <!-- <div class="box book-hidden">
             <a href="book_details_page"
               ><img src="images/book-5.jpg" alt=""
             /></a>
@@ -538,7 +490,7 @@
               ></a>
               <a><i class="fas fa-download"></i></a>
             </div>
-          </div>
+          </div> -->
           <!-- End Book Five -->
           <i class="fas fa-chevron-left end"></i>
         </div>
