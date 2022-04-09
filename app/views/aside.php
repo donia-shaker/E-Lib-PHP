@@ -61,15 +61,17 @@
 
 
   <!-- Forms & Tables -->
+  <li class="menu-header small text-uppercase"><a href="/books_page" class="menu-link"><span class="menu-header-text"> الصفحة الرئيسية</span>  </s></li>
+
   <li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة المستخدمين</span></li>
 
   <li class="menu-item">
-  <a href="#" class="menu-link">
+  <a href="/singup" class="menu-link">
     <div>انشاء مستخدم</div>
   </a>
 </li>
 <li class="menu-item">
-  <a href="#" class="menu-link">
+  <a href="/users" class="menu-link">
     <div>عرض المستخدمين</div>
   </a>
 </li>
@@ -89,7 +91,7 @@
   </a>
 </li>
   <!-- Misc -->
-  <li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة الطلبات</span></li>
+<!-- <li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة الطلبات</span></li>
   <li class="menu-item">
   <a href="#" class="menu-link">
     <div>طلبات جديدة</div>
@@ -99,8 +101,8 @@
   <a href="#" class="menu-link">
     <div>طلبات مكتملة</div>
   </a>
-</li>
-
+</li> -->
+<!-- 
 <li class="menu-item">
   <a href="#" class="menu-link">
     <div>طلبات قيد المعالجة </div>
@@ -110,43 +112,114 @@
   <a href="#" class="menu-link">
     <div>طلبات ملغية</div>
   </a>
-</li>
-  <!-- Misc -->
-  <li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة الكتب/span></li>
+</li> -->
+<!-- Misc -->
+<li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة الكتب</span></li>
   <li class="menu-item">
-  <a href="#" class="menu-link">
+  <a href="/add_books" class="menu-link">
     <div>اضافة كتاب</div>
   </a>
 </li>
 <li class="menu-item">
-  <a href="#" class="menu-link">
+  <a href="/books" class="menu-link">
     <div>عرض الكتب</div>
   </a>
 </li>
-   <!-- Misc -->
+<!-- Misc -->
+<li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة المؤلفين</span></li>
+  <li class="menu-item">
+  <a href="/add_author" class="menu-link">
+    <div>اضافة مؤلف</div>
+  </a>
+</li>
+<li class="menu-item">
+  <a href="/authors" class="menu-link">
+    <div>عرض المؤلفين</div>
+  </a>
+</li>
+
+<!-- Misc -->
+<li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة دور النشر</span></li>
+  <li class="menu-item">
+  <a href="/add_publisher" class="menu-link">
+    <div>اضافة دار النشر</div>
+  </a>
+</li>
+<li class="menu-item">
+  <a href="/publishers" class="menu-link">
+    <div>عرض دار النشر</div>
+  </a>
+</li>
+<!-- Misc -->
+<li class="menu-header small text-uppercase"><span class="menu-header-text">  المدن</span></li>
+  <li class="menu-item">
+  <a href="/add_city" class="menu-link">
+    <div>اضافة  مدينة</div>
+  </a>
+</li>
+<li class="menu-item">
+  <a href="/cities" class="menu-link">
+    <div>عرض  المدن</div>
+  </a>
+</li>
+<!-- Misc -->
+<li class="menu-header small text-uppercase"><span class="menu-header-text">  ادارة العروض</span></li>
+  <li class="menu-item">
+  <a href="/add_offer" class="menu-link">
+    <div>اضافة  عرض</div>
+  </a>
+</li>
+<li class="menu-item">
+  <a href="/offers" class="menu-link">
+    <div>قائمة العروض  </div>
+  </a>
+</li>
+<!-- Misc -->
    <li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة طرق الدفع</span></li>
    <li class="menu-item">
-  <a href="#" class="menu-link">
+  <a href="/add_peyment" class="menu-link">
     <div>اضافة طريقة </div>
   </a>
 </li>
 <li class="menu-item">
-  <a href="#" class="menu-link">
+  <a href="/peyments" class="menu-link">
     <div>عرض الطرق</div>
   </a>
 </li>
-
-
    <!-- Misc -->
-   <li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة  الدفع</span></li>
+<li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة  الدفع</span></li>
+   <li class="menu-item">
+  <a href="/add_peyment" class="menu-link">
+    <div>اضافة طريقة </div>
+  </a>
+</li>
+<li class="menu-item">
+  <a href="/peyments" class="menu-link">
+    <div>عرض الطرق</div>
+  </a>
+</li>
+   <!-- Misc -->
+<li class="menu-header small text-uppercase"><span class="menu-header-text">ادارة الفواتير </span></li>
    <li class="menu-item">
   <a href="#" class="menu-link">
-    <div>اضافة طريقة </div>
+    <div>اضافة فاتورة </div>
   </a>
 </li>
 <li class="menu-item">
+  <a href="/orders" class="menu-link">
+    <div>عرض الفواتير</div>
+  </a>
+</li>
+   <!-- Misc -->
+<li class="menu-header small text-uppercase"><span class="menu-header-text">  عناوين المستخدين</span></li>
+   <li class="menu-item">
   <a href="#" class="menu-link">
-    <div>عرض الطرق</div>
+    <div>اضافة عنوان </div>
+  </a>
+</li>
+<li class="menu-item">
+  <a href="/users_address" class="menu-link">
+    <div>عرض العناوين</div>
   </a>
 </li>
 </ul>

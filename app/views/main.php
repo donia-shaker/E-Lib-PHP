@@ -43,7 +43,7 @@
               <a href="#"><i class="fas fa-star"></i>ألرئيسية</a>
             </li>
             <li>
-              <a href="#"><i class="fas fa-truck"></i>من نحن</a>
+              <a href="/books"><i class="fas fa-truck"></i>ادارة الصفحات </a>
             </li>
             <li>
               <a href="#"><i class="fas fa-shield-alt"></i>اتصل بنا</a>

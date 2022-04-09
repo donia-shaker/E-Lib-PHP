@@ -26,7 +26,7 @@ class Model{
         $values=implode(",",$values);
         $columns=implode(",",$columns);
        $sql_query="insert into ".self::$tblName." (".$columns." ) values (".$values.")";
-   echo $sql_query;
+//    echo $sql_query;
 //    echo $columns;
    
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
@@ -43,7 +43,7 @@ class Model{
         .$this->where;
         $stmt=AppSystem::$appSystem->database->pdo->prepare($sql_query);
         $stmt->execute();
-        echo $sql_query;
+        // echo $sql_query;
 
         return $stmt->fetchAll();
 

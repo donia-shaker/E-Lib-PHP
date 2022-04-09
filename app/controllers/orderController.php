@@ -17,7 +17,7 @@ class OrderController extends Controller{
         $allorders=$orders->getAll();
         //print_r($allCategories);
 
-        $this->view('list_categories',$allorders);
+        $this->view('order',$allorders);
 
     }
 
