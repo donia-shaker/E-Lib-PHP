@@ -94,12 +94,20 @@ class BooksController extends Controller{
         $books->is_active=1;
 
         $books->update();
+        if($books->update())
+        $this->view('feedback',['success'=>'data update successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not update data']);
     }
 
     public function remove($params=[]){
         echo "remove function";
         $books=new Book();
         $books->changeStatus($params['id']);
+        if($books->changeStatus($params['id']))
+        $this->view('feedback',['success'=>'data removed successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not remove data']);
 
     }
 

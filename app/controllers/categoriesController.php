@@ -73,18 +73,21 @@ class CategoriesController extends Controller{
         $category->is_active=1;
 
         $category->update();
-        // $this->view('list_categories');
-
-        
-
+        if($category->update())
+        $this->view('feedback',['success'=>'data update successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not update data']);
     }
+
+
     public function remove($params=[]){
         echo "remove function";
         $cat=new Category();
         $cat->changeStatus($params['id']);
-        // $this->view('remove_category',$result);
-       
-
+        if($cat->changeStatus($params['id']))
+        $this->view('feedback',['success'=>'data removed successful']);
+        else 
+        $this->view('feedback',['danger'=>'can not remove data']);       
     }
 
 
